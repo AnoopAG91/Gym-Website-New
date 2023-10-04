@@ -6,7 +6,7 @@ function SignUp() {
   const [email,setEmail]=useState("")
   const [mobile,setMobile]=useState("")
   const [password,setPassword]=useState("")
-  const [ComPassword,setConPassword]=useState("")
+  const [ConPassword,setConPassword]=useState("")
 
   const navigate=useNavigate()
 
@@ -25,7 +25,7 @@ function SignUp() {
     mobile:mobile
    }
     
-   if(EmailValidation.test(email)&&MobileValidation.test(mobile)&&password.length>3&&password==ComPassword){
+   if(EmailValidation.test(email) && MobileValidation.test(mobile) && password.length>3 && password === ConPassword){
    Users.push(user)
    localStorage.setItem("Users",JSON.stringify(Users))
 
@@ -42,7 +42,7 @@ function SignUp() {
       <input className={Styles.email} placeholder='Email' type='email' value={email} onChange={(e)=>setEmail(e.target.value)} />
       <input className={Styles.mobile} placeholder='mobile' type='number' value={mobile} onChange={(e)=>setMobile(e.target.value)}/>          
       <input className={Styles.pasword} placeholder='pasword' type='password' value={password} onChange={(e)=>setPassword(e.target.value)} />  
-      <input className={Styles.pasword} placeholder='comfirm_pasword' type='password' value={ComPassword} onChange={(e)=>setConPassword(e.target.value)} />                    
+      <input className={Styles.pasword} placeholder='confirm_pasword' type='password' value={ConPassword} onChange={(e)=>setConPassword(e.target.value)} />                    
       <button className={Styles.submit} onClick={handle} >Submit</button>
       <p>Allready have account <button onClick={()=> navigate("/login")}>click here</button></p>
 
